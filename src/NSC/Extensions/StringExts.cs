@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net;
 using System.Text;
 
@@ -43,7 +44,7 @@ namespace NetSwiftClient
             if (!t.IsValueType)
                 return Convert.ChangeType(s, t);
             if (Nullable.GetUnderlyingType(t) != null)// Nullable<T>
-                return Convert.ChangeType(s, Nullable.GetUnderlyingType(t));
+                return Convert.ChangeType(s, Nullable.GetUnderlyingType(t), CultureInfo.InvariantCulture);
             return Convert.ChangeType(s, t);
         }
 
